@@ -1,0 +1,14 @@
+.CompanyItemAF {
+
+}
+
+.CompanyItemAF .email {
+    display: inline-block;
+    font-size: 1px;
+    padding: 20px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+
+

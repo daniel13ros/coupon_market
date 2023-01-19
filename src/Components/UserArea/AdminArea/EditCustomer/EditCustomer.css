@@ -1,0 +1,46 @@
+.EditTodo {}
+
+
+.EditCustomer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.EditCustomer input[type="text"], input[type="datetime-local"] {
+    width: 200px;
+    height: 25px;
+}
+.EditCustomer input[type="id"], input[type="number"] {
+    width: 200px;
+    height: 25px;
+}
+
+.EditCustomer button {
+    width: 100%;
+    height: 25px;
+    margin: 5px;
+    border: none;
+    background-color: #2270be;
+    color: white;
+    font-size: large;
+}
+
+.EditCustomer button:hover {
+
+    background-color: #6186ab;
+
+}
+
+.EditCustomer button:disabled {
+
+    cursor:not-allowed;
+    background-color: #6186ab;
+
+}
+
+.EditCustomer span {
+    color: red;
+    font-weight: 700;
+}

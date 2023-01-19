@@ -1,0 +1,46 @@
+.EditCompany {}
+
+
+.EditCompany form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.EditCompany input[type="text"] {
+    width: 200px;
+    height: 25px;
+}
+.EditCompany input[type="id"], input[type="number"] {
+    width: 200px;
+    height: 25px;
+}
+
+.EditCompany button {
+    width: 100%;
+    height: 25px;
+    margin: 5px;
+    border: none;
+    background-color: #2270be;
+    color: white;
+    font-size: large;
+}
+
+.EditCompany button:hover {
+
+    background-color: #6186ab;
+
+}
+
+.EditTodo button:disabled {
+
+    cursor:not-allowed;
+    background-color: #6186ab;
+
+}
+
+.EditTodo span {
+    color: red;
+    font-weight: 700;
+}

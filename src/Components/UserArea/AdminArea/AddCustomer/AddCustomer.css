@@ -1,0 +1,42 @@
+.AddCustomer {}
+
+
+.AddCustomer form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.AddCustomer input[type="text"], input[type="datetime-local"] {
+    width: 200px;
+    height: 25px;
+}
+
+.AddCustomer button {
+    width: 100%;
+    height: 25px;
+    margin: 5px;
+    border: none;
+    background-color: #2270be;
+    color: white;
+    font-size: large;
+}
+
+.AddCustomer button:hover {
+
+    background-color: #6186ab;
+
+}
+
+.AddCustomer button:disabled {
+
+    cursor:not-allowed;
+    background-color: #6186ab;
+
+}
+
+.AddCustomer span {
+    color: red;
+    font-weight: 700;
+}
