@@ -4,6 +4,7 @@ export interface CustomerModel {
     lastName?: string;
     email?: string;
     password?: string;
+    type?: "Customer";
 }
 
 export interface CustomerPayloadModel {
@@ -11,4 +12,6 @@ export interface CustomerPayloadModel {
     lastName?: string;
     email?: string;
     password?: string;
+    type?: "Customer";
+
 }

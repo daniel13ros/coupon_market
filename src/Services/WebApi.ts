@@ -106,6 +106,9 @@ class WebApi {
     public getAllCouponsApi() {
         return  tokenAxios.get<CouponModel[]>(this.adminApi+"/coupons");
     }
+    public customerGetAllCouponsApi() {
+        return  tokenAxios.get<CouponModel[]>(this.customerApi+"/coupons/all");
+    }
 
 }
 

@@ -20,18 +20,25 @@ function CouponItemCF(props:CouponItemProps): JSX.Element {
     }
     
     return (
-        <div className="CouponItem card">
+        <div className="CouponItemCF card">
 			
-            <h3>{props.coupon.description} </h3>
-            <hr />
-            <span className="category">{props.coupon.category}</span>
-            <span className="group">price :{props.coupon.price}$</span>
+            <div className="top">
+            <h3>{props.coupon.title} </h3>
+            <span>{props.coupon.description} </span>
+            </div>
             <br></br>
-            <span>{moment(props.coupon.startDate).format("DD/MM/YY")}</span>
-            <span>{moment(props.coupon.endDate).format("DD/MM/YY")}</span>
-            <div className="row">
-                <button onClick={() => deleteCoupon(props.coupon.id!)}><FaTrash /></button>
-                <button onClick={() => editCoupon(props.coupon.id!)}><FaEdit /></button>
+            <br></br>
+            <div className="mid">
+            <span>{props.coupon.category}</span>
+            <span>price :{props.coupon.price}$</span>
+            </div>
+            <div className="low">
+            <span>start date:{moment(props.coupon.startDate).format("DD/MM/YY")}</span>
+            <span>end date:{moment(props.coupon.endDate).format("DD/MM/YY")}</span>
+            </div>
+            <div className="flex-row">
+                <button className="button1" onClick={() => deleteCoupon(props.coupon.id!)}><FaTrash /></button>
+                <button className="button1" onClick={() => editCoupon(props.coupon.id!)}><FaEdit /></button>
             </div>
         
         </div>

@@ -2,7 +2,7 @@ import { useForm ,useFormState} from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate, useParams } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { CompanyModel, CompanyPayloadModel } from "../../../../Model/CompanyModel";
 import store from "../../../../Redux/Store";
 import webApi from "../../../../Services/WebApi";
@@ -18,7 +18,6 @@ function EditCompany(): JSX.Element {
 
     const params = useParams();
     const id = +(params.id || 0)
-
     const [obj, setObj] = useState<CompanyModel>(store.getState().companyReducer.companies.filter(company => company.id === id)[0])
 
     const navigate = useNavigate();
@@ -49,7 +48,6 @@ function EditCompany(): JSX.Element {
     }
 
 
-
     let defaultValuesObj = { ...obj };
 
     const { register, handleSubmit, control, formState: { errors, isDirty, isValid } }
@@ -63,8 +61,8 @@ function EditCompany(): JSX.Element {
 
 
     return (
-        <div className="EditTodo">
-            <h1>Edit Task</h1>
+        <div className="EditCompany">
+            <h1 className="head">Edit Company</h1>
             <form onSubmit={handleSubmit(putTask)}>
                 <input disabled={true} id="id" name="id" type="number" placeholder="Id..." value={id} />
 

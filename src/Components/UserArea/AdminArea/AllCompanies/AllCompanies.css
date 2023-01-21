@@ -1,3 +1,7 @@
 .AllCompanies {
 	text-align: center;
 }
+.AllCompanies .searchDiv {
+	width: 25%;
+	background-color: aqua;
+}

@@ -72,7 +72,7 @@ function EditTodo(): JSX.Element {
 
     return (
         <div className="EditCustomer">
-            <h1>Edit Customer</h1>
+            <h1 className="head" >Edit Customer</h1>
             <form onSubmit={handleSubmit(putTask)}>
                 <input disabled={true} id="id" name="id" type="number" placeholder="Id..." value={id} />
 

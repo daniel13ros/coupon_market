@@ -1,4 +1,10 @@
 .Home {
-	
-
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.Home .homeGiphy {
+	border-radius: 12%;
+	width: 300px;
 }

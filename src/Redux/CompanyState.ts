@@ -69,8 +69,6 @@ export function updateCouponAction(coupon: CouponModel): CompanyAction {
 
 export function deleteCouponAction(couponId: number): CompanyAction {
   return {
-
-    
     type: CompanyActionType.DeleteCoupon,
     payload: couponId,
   };
@@ -106,40 +104,40 @@ export function getCompanyCouponsAction(coupons: CouponModel[]): CompanyAction {
 
 // Step 5 - Reducer function perform the required action
 
-export function CompanyReducer(currentState: CompanyState = new CompanyState(),action: CompanyAction): CompanyState {
+export function CompanyReducer(currentState: CompanyState = new CompanyState(), action: CompanyAction): CompanyState {
   const newState = { ...currentState };
   switch (action.type) {
-    case CompanyActionType.GetCompanies: 
-      newState.companies = action.payload;    
-    break;
+    case CompanyActionType.GetCompanies:
+      newState.companies = action.payload;
+      break;
     case CompanyActionType.GetCompanyCoupons:
-        newState.coupons = action.payload;
+      newState.coupons = action.payload;
       break;
     case CompanyActionType.DeleteCoupon:
-        newState.coupons = newState.coupons.filter((coupon)=>coupon.id !== action.payload);
+      newState.coupons = newState.coupons.filter((coupon) => coupon.id !== action.payload);
       break;
     case CompanyActionType.DeleteCompany:
-        newState.companies = newState.companies.filter((company)=> company.id !== action.payload);
+      newState.companies = newState.companies.filter((company) => company.id !== action.payload);
       break;
     case CompanyActionType.UpdateCompany:
-        const companyId = newState.companies.findIndex((company)=> company.id === action.payload.id)
-        newState.companies[companyId] = action.payload;
+      const companyId = newState.companies.findIndex((company) => company.id === action.payload.id)
+      newState.companies[companyId] = action.payload;
       break;
     case CompanyActionType.UpdateCoupon:
-        const couponId = newState.coupons.findIndex(coupon=> coupon.id === action.payload.id);
-        newState.coupons[couponId] = action.payload;
+      const idx = newState.coupons.findIndex(coupon => {return coupon.id === action.payload.id;});
+      newState.coupons[idx] = action.payload;
       break;
     case CompanyActionType.AddCoupon:
-        newState.coupons.push(action.payload);
+      newState.coupons.push(action.payload);
       break;
     case CompanyActionType.AddCompany:
-        newState.companies.push(action.payload);
+      newState.companies.push(action.payload);
       break;
     case CompanyActionType.ClearCompanies:
-        newState.companies = [];
+      newState.companies = [];
       break;
     case CompanyActionType.ClearCoupons:
-        newState.coupons = [];
+      newState.coupons = [];
       break;
   }
   return newState;

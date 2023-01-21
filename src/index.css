@@ -33,19 +33,18 @@ code {
 }
 
 .flex-row {
+  margin-top: 5px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  /* background-color: yellow; */
   gap: 10px;
-
-
 }
 
 
 
 .flex-center-col {
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,10 +86,6 @@ p:first-letter {
 } */
 
 
-
-
-
-
 .button {
   height: 30px;
   width: 100px;
@@ -125,7 +120,7 @@ p:first-letter {
   transition-duration: 0.4s;
   background-color: #60625f;
   color: white;
-  cursor:not-allowed;
+  cursor: not-allowed;
 }
 
 .button-danger {
@@ -180,16 +175,21 @@ form span {
 form .button-app {
   text-align: center;
 }
+
 .card {
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: rgb(215, 200, 200);
-  border: 3px dashed darkblue;
+  max-width: 450px;
   margin: 10px;
-  width: 150px;
-  height: 250px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  width: 300px;
 }
 
 input[type=text], input[type=date], input[type=datetime-local], input[type=number], input[type=email], input[type=password] {
@@ -212,11 +212,76 @@ label {
   display: inline-block;
   display: inline-block;
   text-align: start;
-  color:black;
+  color: black;
 }
 
-.head{
+.head {
   display: flex;
-	text-align: center;
-	justify-content: center;
+  text-align: center;
+  justify-content: center;
 }
+
+.selectArea {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mid {
+  font-size: large;
+  color: rgb(0, 0, 0);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+
+}
+
+.low {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+
+}
+
+
+
+
+.button1{
+justify-content: center;
+font-family: Roboto, sans-serif;
+font-weight: 0;
+font-size: 14px;
+color: #fff;
+background-color: #bdbdbd;
+padding: 10px 30px;
+border: solid #bababa 2px;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+border-radius: 23px;
+transition : 1000ms;
+transform: translateY(0);
+display: flex;
+flex-direction: row;
+align-items: center;
+cursor: pointer;
+}
+
+.button1:hover{
+transition : 1000ms;
+padding: 10px 50px;
+transform : translateY(-0px);
+background-color: #fff;
+color: #c7c7c7;
+border: solid 2px #c7c7c7;
+}
+

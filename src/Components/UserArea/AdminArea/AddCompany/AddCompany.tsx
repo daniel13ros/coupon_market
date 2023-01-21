@@ -17,7 +17,6 @@ function AddTodo(): JSX.Element {
         const token=store.getState().userReducer.user.token;
         if(!token){
             navigate("/login");
-            
         }
     },[]);
 
@@ -32,13 +31,16 @@ function AddTodo(): JSX.Element {
             yup.string()
                 .min(4,"password must be at least 4 characters")
                 .required("password is required"),
-                
+        type:
+            yup.string()
+            
     });
 
     const { register, handleSubmit, formState: { errors, isDirty, isValid } } = useForm<CompanyPayloadModel>({ mode: "all", resolver: yupResolver(schema) });
 
 
     const postTask = async (company: CompanyPayloadModel) => {
+        company.type="Company"
         await webApi.addCompanyApi(company)
             .then(res => {
                 notify.success('company added successfully');
@@ -52,7 +54,7 @@ function AddTodo(): JSX.Element {
     }
     return (
         <div className="AddCompany">
-            <h1>Add Company</h1>
+            <h1 className="head" >Add Company</h1>
             <form onSubmit={handleSubmit(postTask)}>
                 {(errors.name) ? <span>{errors.name?.message}</span> : <label htmlFor="name">Name</label>}
                 <input {...register("name")} id="name" name="name" type="text" placeholder="Name..." />
@@ -60,7 +62,9 @@ function AddTodo(): JSX.Element {
                 <input {...register("email")} id="email" name="email" type="text" placeholder="email..." />
                 {(errors.password) ? <span>{errors.password?.message}</span> : <label htmlFor="password">Password</label>}
                 <input {...register("password")} id="password" name="password" type="password" placeholder="Password..." />
-                <button disabled={!isValid}>Add Task</button>
+                <label htmlFor="type">clientType</label>
+                <input  disabled={true} id="type" name="type" type="text" placeholder="type..." value="Company" />
+                <button disabled={!isValid}>Add company</button>
 
 
             </form>

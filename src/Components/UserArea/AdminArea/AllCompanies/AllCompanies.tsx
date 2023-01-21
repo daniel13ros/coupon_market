@@ -18,64 +18,75 @@ import AddCompany from "../AddCompany/AddCompany";
 ;
 
 function AllCompanies(): JSX.Element {
-    const[companies,setCompanies]= useState<CompanyModel[]>(store.getState().companyReducer.companies);
-    const navigate=useNavigate();
-    
-    useEffect(() =>{
-        const token=store.getState().userReducer.user.token;
-        if(!token){
-            navigate("/login");   
-        }
-    },[]);
-    
-    useEffect( () =>{
-            if(companies.length===0){
-            webApi.getAllCompaniesApi()
-            .then(res=>{
-                console.log(res.data)
-                
-                //update local state
-                setCompanies(res.data)
+    const [companies, setCompanies] = useState<CompanyModel[]>(store.getState().companyReducer.companies);
+    const [companiesSearch, setCompaniesSearch] = useState<CompanyModel[]>([]);
 
-                //update app state
-                store.dispatch(getCompaniesAction(res.data))
-                notify.success('wohoo companies found')
-                
-            })
-            .catch(err=>notify.error('ohh no there are no companies'));
-        }
-                    
-
-    },[]);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        webApi.getAllCompaniesApi().then(res=>setCompanies(res.data))
-        .catch(err=>notify.error(err));
-    
-    
+        const token = store.getState().userReducer.user.token;
+        if (!token) {
+            navigate("/login");
+        }
+    }, []);
+
+    useEffect(() => {
+        if (companiesSearch.length === 0) {
+            webApi.getAllCompaniesApi()
+                .then(res => {
+                    console.log(res.data)
+
+                    //update local state
+                    setCompanies(res.data)
+                    setCompaniesSearch(res.data)
+
+                    //update app state
+                    store.dispatch(getCompaniesAction(res.data))
+                    notify.success('wohoo companies found')
+
+                })
+                .catch(err => notify.error('ohh no there are no companies'));
+        }
+
+
+    }, []);
+
+    const filter = (e: any) => {
+        const search = e.target.value;
+
+        if (search !== '') {
+            const results = companies.filter((c) => {
+                return c.name?.toLowerCase().startsWith(search.toLowerCase());
+            });
+            setCompaniesSearch(results);
+        } else {
+            setCompaniesSearch(companies);
+        }
+
+    };
+
+    useEffect(() => {
+        webApi.getAllCompaniesApi().then(res => setCompanies(res.data))
+            .catch(err => notify.error(err));
+
         return store.subscribe(() => {
-            setCompanies(store.getState().companyReducer.companies); // Will let us notify
+            setCompanies(store.getState().companyReducer.companies);
         });
-    },[]);
+    }, []);
 
 
     return (
         <div className="AllCompanies ">
-            <h1>Companies list</h1>
-            {/* {
-                tasks.length > 0 
-                ?
-                <>{tasks.map((task,idx) => <p key={"t"+idx}>{task.id},{task.title},{task.description}</p>) }</>
-                :
-                <EmptyView msg="No tasks found"/>
-            } */}
-            
+            <h1 className="head" >Companies list</h1> 
+            <div >            
+                <input  type={"text"} placeholder={"Search company by name "} onChange={filter} /> 
+            </div>
             {
-                companies?.length>0 
-                ? 
-                <>{companies.map((c,idx)=> <CompanyItemAF key={"t"+idx} company={c}/>)}</> 
-                : 
-                <EmptyView msg="No Companies found"/>
+                companies?.length > 0
+                    ?
+                    <>{companiesSearch.map((c, idx) => <CompanyItemAF key={"t" + idx} company={c} />)}</>
+                    :
+                    <EmptyView msg="No Companies found" />
             }
         </div>
     );

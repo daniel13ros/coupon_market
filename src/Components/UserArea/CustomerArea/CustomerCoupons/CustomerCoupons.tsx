@@ -25,7 +25,6 @@ function CustomerCoupons(): JSX.Element {
     },[]);
     
     useEffect( () =>{
-            // axios.get<TaskModel[]>(globals.urls.tasks)
             if(coupons.length===0){
             webApi.getAllCustomerCouponsApi()
             .then(res=>{
@@ -58,7 +57,7 @@ function CustomerCoupons(): JSX.Element {
 
     return (
         <div className="CustomerCoupons ">
-            <h1>Coupons list</h1>
+            <h1 className="head">Coupons list</h1>
             {
                 coupons?.length>0 
                 ? 

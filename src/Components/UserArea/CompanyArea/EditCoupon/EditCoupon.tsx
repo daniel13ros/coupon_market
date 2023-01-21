@@ -23,8 +23,6 @@ function EditCoupon(): JSX.Element {
 
     const [objCoupon, setObjCoupon] = useState<CouponModel>(store.getState().companyReducer.coupons.filter(coupon => coupon.id === couponId)[0])
     
-    
-
     const navigate = useNavigate();
 
     const schema = yup.object().shape({
@@ -72,12 +70,8 @@ function EditCoupon(): JSX.Element {
             })
         console.log(coupon);
     }
-    useEffect(() => {
 
-        return store.subscribe(() => {
-            setObjCoupon(store.getState().companyReducer.coupons.filter(coupon => coupon.id === couponId)[0]); 
-        });
-    },[]);
+    
 
 
 

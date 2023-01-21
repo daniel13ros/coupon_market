@@ -1,36 +1,44 @@
 import moment from "moment";
-import { FaTrash } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+import { GrAdd } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { CouponModel } from "../../../Model/CouponModel";
+import notify from "../../../Services/NotificationService";
+import webApi from "../../../Services/WebApi";
 
 interface CouponItemProps{
     coupon:CouponModel;
 }
 
-function CouponItemCF(props:CouponItemProps): JSX.Element {
+function CouponItemCuF(props:CouponItemProps): JSX.Element {
     const navigate = useNavigate();
 
-    const purchaseCoupon = (id: number) => {
-        navigate('/coupons/purchase/' + id);
+    const purchaseCoupon = (id:number) => {
+        webApi.purchaseCouponApi(id)
+        navigate('/home' );
     }
     
     return (
-        <div className="CouponItem card">
+        <div className="CouponItemCuF card">
 			
-            <h3>{props.coupon.description} </h3>
-            <hr />
-            <span className="category">{props.coupon.category}</span>
-            <span className="group">price :{props.coupon.price}$</span>
+            <div className="top">
+            <h3>{props.coupon.title} </h3>
+            <span>{props.coupon.description} </span>
+            </div>
             <br></br>
-            <span>{moment(props.coupon.startDate).format("DD/MM/YY")}</span>
-            <span>{moment(props.coupon.endDate).format("DD/MM/YY")}</span>
-            <div className="row">
-                <button onClick={() => purchaseCoupon(props.coupon.id!)}><FaTrash /></button>
-                
+            <br></br>
+            <div className="mid">
+            <span>{props.coupon.category}</span>
+            <span>price :{props.coupon.price}$</span>
+            </div>
+            <div className="low">
+            <span>start date:{moment(props.coupon.startDate).format("DD/MM/YY")}</span>
+            <span>end date:{moment(props.coupon.endDate).format("DD/MM/YY")}</span>
+            </div>
+            <div className="flex-center-col">
+                <button className="button1" onClick={() => purchaseCoupon(props.coupon.id!)}><GrAdd /></button>
             </div>
         
         </div>
     );
 }
-export default CouponItemCF;
+export default CouponItemCuF;

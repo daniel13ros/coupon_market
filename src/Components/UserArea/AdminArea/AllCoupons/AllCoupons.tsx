@@ -58,7 +58,7 @@ function AllCoupons(): JSX.Element {
 
     return (
         <div className="AllCoupons ">
-            <h1 >Coupons list</h1>
+            <h1 className="head" >Coupons list</h1>
             {
                 coupons?.length>0 
                 ? 

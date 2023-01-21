@@ -41,7 +41,7 @@ function Login(): JSX.Element {
     return (
 
         <div className="Login">
-			<h2>Login</h2>
+			<h2 className="head">Login</h2>
             <form onSubmit={handleSubmit(postLogin)}>
                 {(!errors.email)?<label htmlFor="email">Email</label>:<span>{errors.email.message}</span>}
                 <input {...register("email")}id="email"type="email" placeholder="email"/>

@@ -7,11 +7,14 @@ import "./Menu.css";
 function Menu(): JSX.Element {
   const navigation = useNavigate();
   const type = store.getState().userReducer.user.clientType;
-  
+
 
   return (
     <div className="Menu flex-col-top-center">
       <h1 >Menu</h1>
+      {type === "Administrator" && (
+        <CustomLink to="/home">Home</CustomLink>
+      )}
       {type === "Administrator" && (
         <CustomLink to="/admin/companies">Companies</CustomLink>
       )}
@@ -20,13 +23,16 @@ function Menu(): JSX.Element {
       )}
       {type === "Administrator" && (
         <CustomLink to="/admin/customers">Customers</CustomLink>
-       )}
-       {type === "Administrator" && (
+      )}
+      {type === "Administrator" && (
         <CustomLink to="/admin/customers/addCustomer">Add customer</CustomLink>
       )}
-       {type === "Administrator" && (
+      {type === "Administrator" && (
         <CustomLink to="/admin/coupons">Coupons</CustomLink>
-       )}
+      )}
+      {type === 'Company' && (
+        <CustomLink to="/home">Home</CustomLink>
+      )}
       {type === 'Company' && (
         <CustomLink to="/company/coupons">Coupons</CustomLink>
       )}
@@ -37,9 +43,15 @@ function Menu(): JSX.Element {
         <CustomLink to="/company/details">profile</CustomLink>
       )}
       {type === 'Customer' && (
+        <CustomLink to="/home">Home</CustomLink>
+      )}
+      {type === 'Customer' && (
+        <CustomLink to="/customer/purchase">Purchase</CustomLink>
+      )}
+      {type === 'Customer' && (
         <CustomLink to="/customer/coupons">my coupons</CustomLink>
       )}
-       {type === 'Customer' && (
+      {type === 'Customer' && (
         <CustomLink to="/customer/details">profile</CustomLink>
       )}
     </div>

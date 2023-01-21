@@ -42,6 +42,7 @@ function AddTodo(): JSX.Element {
 
 
     const postTask = async (customer: CustomerPayloadModel) => {
+        customer.type="Customer"
         await webApi.addCustomerApi(customer)
             .then(res => {
                 notify.success('customer added successfully');
@@ -55,7 +56,7 @@ function AddTodo(): JSX.Element {
     }
     return (
         <div className="AddCustomer">
-            <h1>Add Customer</h1>
+            <h1 className="head">Add Customer</h1>
             <form onSubmit={handleSubmit(postTask)}>
                 {(errors.firstName) ? <span>{errors.firstName?.message}</span> : <label htmlFor="firstName">FirstName</label>}
                 <input {...register("firstName")} id="firstName" name="firstName" type="text" placeholder="FirstName..." />
@@ -65,6 +66,7 @@ function AddTodo(): JSX.Element {
                 <input {...register("email")} id="email" name="email" type="text" placeholder="Email..." />
                 {(errors.password) ? <span>{errors.password?.message}</span> : <label htmlFor="password">Password</label>}
                 <input {...register("password")} id="password" name="password" type="password" placeholder="Password..." />
+                <input  disabled={true}  id="clientType" name="clientType" type="text" value={"Customer"} />
                 <button disabled={!isValid}>Add Customer</button>
 
 

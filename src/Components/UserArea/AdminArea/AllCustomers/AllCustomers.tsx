@@ -11,11 +11,13 @@ import webApi from "../../../../Services/WebApi";
 import EmptyView from "../../../SharedArea/EmptyView/EmptyView";
 import TodoItem from "../../../SharedArea/CouponItem/CouponItem";
 import { CustomerModel } from "../../../../Model/CustomerModel";
-import CustomerItem from "../../../SharedArea/CustomerItem/CustomerItem";
-;
+import CustomerItem from "../../../SharedArea/CustomerDetailsItem/CustomerDetailsItem";
+
 
 function AllCustomers(): JSX.Element {
     const[customers,setCustomers]= useState<CustomerModel[]>(store.getState().customerReducer.customers);
+    const [customersSearch, setCustomersSearch] = useState<CustomerModel[]>([]);
+
     const navigate=useNavigate();
     
     useEffect(() =>{
@@ -26,13 +28,14 @@ function AllCustomers(): JSX.Element {
     },[]);
     
     useEffect( () =>{
-            if(customers.length===0){
+            if(customersSearch.length===0){
             webApi.getAllCustomersApi()
             .then(res=>{
                 console.log(res.data)
                 
                 //update local state
                 setCustomers(res.data)
+                setCustomersSearch(res.data)
 
                 //update app state
                 store.dispatch(getCustomersAction(res.data))
@@ -44,6 +47,20 @@ function AllCustomers(): JSX.Element {
                     
 
     },[]);
+
+    const filter = (e: any) => {
+        const search = e.target.value;
+
+        if (search !== '') {
+            const results = customers.filter((c) => {
+                return c.firstName?.toLowerCase().startsWith(search.toLowerCase())||c.lastName?.toLowerCase().startsWith(search.toLowerCase());
+            });
+            setCustomersSearch(results);
+        } else {
+            setCustomersSearch(customers);
+        }
+
+    };
 
     useEffect(() => {
         webApi.getAllCustomersApi().then(res=>setCustomers(res.data))
@@ -58,11 +75,14 @@ function AllCustomers(): JSX.Element {
 
     return (
         <div className="AllCustomers ">
-            <h1>Customers list</h1>
+            <h1 className="head">Customers list</h1>
+            <div >   
+                <input  type={"text"} placeholder={"Search customer by first name "} onChange={filter} /> 
+            </div>
             {
                 customers?.length>0 
                 ? 
-                <>{customers.map((c,idx)=> <CustomerItem key={"t"+idx} customer={c}/>)}</> 
+                <>{customersSearch.map((c,idx)=> <CustomerItem key={"t"+idx} customer={c}/>)}</> 
                 : 
                 <EmptyView msg="No customers found"/>
             }
