@@ -50,7 +50,7 @@ function AddTodo(): JSX.Element {
             .catch(err => {
                 notify.error(err);
             })
-        console.log(company);
+        
     }
     return (
         <div className="AddCompany">

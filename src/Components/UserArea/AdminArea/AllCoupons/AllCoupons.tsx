@@ -29,7 +29,6 @@ function AllCoupons(): JSX.Element {
             if(coupons.length===0){
             webApi.getAllCouponsApi()
             .then(res=>{
-                console.log(res.data)
                 
                 //update local state
                 setCoupons(res.data)

@@ -44,7 +44,7 @@ function EditCompany(): JSX.Element {
             .catch(err => {
                 notify.error(err);
             })
-        console.log(company);
+        
     }
 
 

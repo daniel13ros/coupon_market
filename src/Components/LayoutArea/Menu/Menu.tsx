@@ -10,7 +10,7 @@ function Menu(): JSX.Element {
 
 
   return (
-    <div className="Menu flex-col-top-center">
+    <div className="Menu flex-col-top-center fade-right ">
       <h1 >Menu</h1>
       {type === "Administrator" && (
         <CustomLink to="/home">Home</CustomLink>

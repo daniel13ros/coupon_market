@@ -8,7 +8,7 @@ interface CustomerDetailsItemProps{
 function CustomerDetailsItem(props:CustomerDetailsItemProps): JSX.Element {
 
     return (
-        <div className="CustomerItem card">
+        <div className="CustomerDetailsItem card">
 			<h1>Customer info</h1>
             <span>id: {props.customer.id}</span>
             <br />

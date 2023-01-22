@@ -34,7 +34,7 @@ function CompanyCoupons(): JSX.Element {
         if (couponsSearch.length === 0) {
             webApi.getAllCompanyCouponsApi()
                 .then(res => {
-                    console.log(res.data)
+                    
 
                     //update local state
                     setCoupons(res.data)
@@ -43,24 +43,13 @@ function CompanyCoupons(): JSX.Element {
 
                     //update app state
                     store.dispatch(getCompanyCouponsAction(res.data))
-                    notify.success('wohoo tasks found')
+                    notify.success('Coupons found')
 
                 })
                 .catch(err => notify.error('ohh no there are no tasks'));
         }
 
         
-    }, []);
-
-    useEffect(() => {
-        webApi.getAllCompanyCouponsApi().then(res => { setCouponsSearch(res.data) })
-        .catch(err => notify.error(err));
-
-
-        return store.subscribe(() => {
-            setCouponsSearch(store.getState().companyReducer.coupons);
-
-        });
     }, []);
 
     const handlerSearch = () => {
@@ -70,6 +59,20 @@ function CompanyCoupons(): JSX.Element {
                 .filter(c => c.category === (category === '' ? c.category : category))
         setCouponsSearch(newData);
     }
+
+    useEffect(() => {
+        webApi.getAllCompanyCouponsApi().then(res => { 
+            setCoupons(res.data);
+            setCouponsSearch(res.data) })
+        .catch(err => notify.error(err));
+
+
+        return store.subscribe(() => {
+            setCoupons(store.getState().companyReducer.coupons);
+            setCouponsSearch(store.getState().companyReducer.coupons);
+
+        });
+    }, []);
 
     return (
         <div className="CompanyCoupons ">

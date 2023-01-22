@@ -8,15 +8,15 @@ import { logIn, logOut } from "../../../Redux/UserAppState";
 import "./LogOut.css";
 
 function LogOut(): JSX.Element {
-    const navigate=useNavigate();
-    useEffect(() =>{
-    store.dispatch(logOut());
-    store.dispatch(clearCompaniesAction());
-    store.dispatch(clearCustomersAction());
-    store.dispatch(clearCustomerCouponAction());
-    store.dispatch(clearCouponAction());
-    navigate("/login")
-    },[]);
+    const navigate = useNavigate();
+    useEffect(() => {
+        store.dispatch(logOut());
+        store.dispatch(clearCompaniesAction());
+        store.dispatch(clearCustomersAction());
+        store.dispatch(clearCustomerCouponAction());
+        store.dispatch(clearCouponAction());
+        navigate("/login")
+    }, []);
 
     return (
         <></>

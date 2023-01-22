@@ -5,9 +5,9 @@ interface EmptyViewProps{
 }
 function EmptyView(props:EmptyViewProps): JSX.Element {
     return (
-        <div className="EmptyView">
+        <div className="EmptyView flex-head">
 			<h1>{props.msg}</h1>
-            <img src="https://media.giphy.com/media/V53jWRdPWwO0U/giphy.gif" alt="Empty View" />
+            <img src="https://media.giphy.com/media/iGvWZBfhOmBKEtWJmF/giphy.gif" alt="Empty View" />
         </div>
     );
 }

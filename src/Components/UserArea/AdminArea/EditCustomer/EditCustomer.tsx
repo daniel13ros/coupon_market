@@ -53,8 +53,7 @@ function EditTodo(): JSX.Element {
             .catch(err => {
                 notify.error(err);
             })
-        console.log(customer);
-    }
+        }
 
 
    

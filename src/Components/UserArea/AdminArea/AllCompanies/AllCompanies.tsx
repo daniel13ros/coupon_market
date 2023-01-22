@@ -34,7 +34,7 @@ function AllCompanies(): JSX.Element {
         if (companiesSearch.length === 0) {
             webApi.getAllCompaniesApi()
                 .then(res => {
-                    console.log(res.data)
+                    
 
                     //update local state
                     setCompanies(res.data)
@@ -42,7 +42,7 @@ function AllCompanies(): JSX.Element {
 
                     //update app state
                     store.dispatch(getCompaniesAction(res.data))
-                    notify.success('wohoo companies found')
+                    notify.success('Companies found')
 
                 })
                 .catch(err => notify.error('ohh no there are no companies'));

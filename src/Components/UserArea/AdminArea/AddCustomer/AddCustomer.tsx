@@ -52,7 +52,7 @@ function AddTodo(): JSX.Element {
             .catch(err => {
                 notify.error(err);
             })
-        console.log(customer);
+        
     }
     return (
         <div className="AddCustomer">

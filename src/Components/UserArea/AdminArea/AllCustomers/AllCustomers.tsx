@@ -1,17 +1,12 @@
-import axios from "axios";
-import React from "react";
 import { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { URL } from "url";
-import { CouponModel } from "../../../../Model/CouponModel";
 import { getCouponsAction, getCustomerCouponsAction, getCustomersAction } from "../../../../Redux/CustomerState";
 import store from "../../../../Redux/Store";
 import notify from "../../../../Services/NotificationService";
 import webApi from "../../../../Services/WebApi";
 import EmptyView from "../../../SharedArea/EmptyView/EmptyView";
-import TodoItem from "../../../SharedArea/CouponItem/CouponItem";
 import { CustomerModel } from "../../../../Model/CustomerModel";
-import CustomerItem from "../../../SharedArea/CustomerDetailsItem/CustomerDetailsItem";
+import CustomerItem from "../../../SharedArea/CustomerItem/CustomerItem";
 
 
 function AllCustomers(): JSX.Element {
@@ -31,7 +26,6 @@ function AllCustomers(): JSX.Element {
             if(customersSearch.length===0){
             webApi.getAllCustomersApi()
             .then(res=>{
-                console.log(res.data)
                 
                 //update local state
                 setCustomers(res.data)
@@ -39,7 +33,7 @@ function AllCustomers(): JSX.Element {
 
                 //update app state
                 store.dispatch(getCustomersAction(res.data))
-                notify.success('wohoo customers found')
+                notify.success('Customers found')
                 
             })
             .catch(err=>notify.error('ohh no there are no customers'));
@@ -68,7 +62,7 @@ function AllCustomers(): JSX.Element {
     
     
         return store.subscribe(() => {
-            setCustomers(store.getState().customerReducer.customers); // Will let us notify
+            setCustomers(store.getState().customerReducer.customers); 
         });
     },[]);
 

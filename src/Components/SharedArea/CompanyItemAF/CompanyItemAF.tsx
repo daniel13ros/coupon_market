@@ -26,9 +26,9 @@ function CompanyItemAF(props:CompanyItemProps): JSX.Element {
             <h2>{props.company.id} </h2>
             <h3>{props.company.name} </h3>
             <span className="email">{props.company.email}</span>
-            <div className="row">
-                <button onClick={() => deleteCompany(props.company.id!)}><FaTrash /></button>
-                <button onClick={() => editCompany(props.company.id!)}><FaEdit /></button>
+            <div className="flex-row">
+                <button className="button1" onClick={() => deleteCompany(props.company.id!)}><FaTrash /></button>
+                <button className="button1" onClick={() => editCompany(props.company.id!)}><FaEdit /></button>
             </div>
             
         

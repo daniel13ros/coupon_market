@@ -7,7 +7,7 @@ import webApi from '../../../../Services/WebApi';
 function PurchaseCoupon(id: number) {
     
     webApi.purchaseCouponApi(id).then(() => {
-        notify.success("COUPON_PURCHASE_SUCCESS");
+        notify.success("Coupon successfully purchased");
         store.dispatch(purchaseCouponAction(id));
     })
     .catch((error) => {

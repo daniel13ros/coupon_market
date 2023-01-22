@@ -50,6 +50,13 @@ code {
   justify-content: center;
   align-items: center;
 }
+.shrink-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  width: 30%;
+}
 
 .flex-col-top-center {
   display: flex;
@@ -221,6 +228,15 @@ label {
   justify-content: center;
 }
 
+.flex-head {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
 .selectArea {
   display: flex;
   text-align: center;
@@ -238,11 +254,11 @@ label {
 .mid {
   font-size: large;
   color: rgb(0, 0, 0);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  margin: 10px;
 
 }
 
@@ -284,4 +300,5 @@ background-color: #fff;
 color: #c7c7c7;
 border: solid 2px #c7c7c7;
 }
+
 

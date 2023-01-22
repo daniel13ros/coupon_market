@@ -17,7 +17,7 @@ function DeleteCoupon(): JSX.Element {
     const yes = async () => {
         await webApi.removeCouponApi(id)
             .then(res => {
-                notify.success('deleted successfully');
+                notify.success('Coupon deleted successfully');
                 store.dispatch(deleteCouponAction(id));
                 navigate("/company/coupons");
             })

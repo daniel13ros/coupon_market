@@ -1,9 +1,7 @@
-import moment from "moment";
-import { FaTrash } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { CouponModel } from "../../../Model/CouponModel";
 import { CustomerModel } from "../../../Model/CustomerModel";
+
 
 interface CustomerItemProps{
     customer:CustomerModel;
@@ -27,9 +25,9 @@ function CustomerItem(props:CustomerItemProps): JSX.Element {
             <hr />
             <span>{props.customer.lastName}</span>
             <span className="email">{props.customer.email}</span>
-            <div className="row">
-                <button onClick={() => deleteCustomer(props.customer.id!)}><FaTrash /></button>
-                <button onClick={() => editCustomer(props.customer.id!)}><FaEdit /></button>
+            <div className="flex-row">
+                <button className="button1" onClick={() => deleteCustomer(props.customer.id!)}><FaTrash /></button>
+                <button className="button1" onClick={() => editCustomer(props.customer.id!)}><FaEdit /></button>
             </div>
             
         

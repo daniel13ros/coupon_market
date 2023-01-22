@@ -61,14 +61,14 @@ function EditCoupon(): JSX.Element {
     const putTask = async (coupon: CouponPayloadModel) => {
         await webApi.updateCouponApi(coupon, couponId)
             .then(res => {
-                notify.success('coupon updated successfully');
+                notify.success('Coupon updated successfully');
                 store.dispatch(updateCouponAction(res.data));
                 navigate('/company/coupons');
             })
             .catch(err => {
                 notify.error(err);
             })
-        console.log(coupon);
+        
     }
 
     

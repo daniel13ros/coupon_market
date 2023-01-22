@@ -28,14 +28,13 @@ function CustomerCoupons(): JSX.Element {
             if(coupons.length===0){
             webApi.getAllCustomerCouponsApi()
             .then(res=>{
-                console.log(res.data)
                 
                 //update local state
                 setCoupons(res.data)
 
                 //update app state
                 store.dispatch(getCustomerCouponsAction(res.data))
-                notify.success('wohoo tasks found')
+                notify.success('Customer coupons found')
                 
             })
             .catch(err=>notify.error('ohh no there are no tasks'));

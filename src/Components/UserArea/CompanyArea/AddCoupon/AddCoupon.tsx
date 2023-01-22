@@ -59,7 +59,7 @@ function AddCoupon(): JSX.Element {
     const postTask = async (coupon: CouponPayloadModel) => {
         await webApi.addCouponApi(coupon)
             .then(res => {
-                notify.success('coupon added successfully');
+                notify.success('Coupon added successfully');
                 store.dispatch(addCouponAction(res.data));
                 navigate('/company/coupons');
             })

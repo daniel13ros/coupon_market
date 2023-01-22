@@ -45,7 +45,7 @@ function GetAllCoupons() {
 
     const getAllCoupons = () => {
         webApi.customerGetAllCouponsApi().then((res) => {
-            notify.success("COUPONS_FETCH_SUCCESS");
+            notify.success("Coupons found");
             store.dispatch(getCouponsAction(res.data));
             setCoupons(res.data);
         })
@@ -56,7 +56,6 @@ function GetAllCoupons() {
 
     const getAllCustomerCoupons = async () => {
         await webApi.getAllCustomerCouponsApi().then((res) => {
-            notify.success("MY_COUPONS_FETCH_SUCCESS");
             store.dispatch(getCustomerCouponsAction(res.data));
             setMyCoupons(res.data);
         })
@@ -109,10 +108,11 @@ function GetAllCoupons() {
     return (
         <div className="coupons_view_container ">
             <h1 className='head'>All Coupons</h1>
-            <CustomLink to="/company/coupon/add"><span />select category</CustomLink>
+            <div className='head flex-center-col'>
+            <CustomLink to="/company/coupon/add"><span >select category</span></CustomLink>
             <label htmlFor="category"></label>
-            <select name='category' placeholder="category" onChange={(e) => handleCategoryChange(e)} defaultValue="ALL" id="category">
-                <option key="ALL" value="ALL">All</option>
+            <select  name='category' placeholder="category" onChange={(e) => handleCategoryChange(e)} defaultValue="ALL" id="category">
+                <option  key="ALL" value="ALL">All</option>
                 {Object.keys(Category).map((key, index) => (
                     <option
                         aria-selected="true"
@@ -125,6 +125,7 @@ function GetAllCoupons() {
             <br />
             <label htmlFor="price">Coupon Price</label>
             <input type="number" min={0} max={999_999} step={1} defaultValue={0} onChange={(e) => handleMaxPriceChange(e)} id="price" name='price' />
+            </div>
             <div className="coupon_list_container">
                 {
                     coupons.length > 0 ?
