@@ -68,6 +68,6 @@
 .fade-right{
   height: 100%;
   width: 100%;
-  -webkit-box-shadow: inset 0 0 10px 20px #f5e4a9;
+  -webkit-box-shadow: inset 0 1 10px 20px #f5e4a9;
   box-shadow: inset 0 0 10px 20px #f5e4a9;
 }

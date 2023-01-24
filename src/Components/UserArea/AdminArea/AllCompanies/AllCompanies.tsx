@@ -20,7 +20,6 @@ import AddCompany from "../AddCompany/AddCompany";
 function AllCompanies(): JSX.Element {
     const [companies, setCompanies] = useState<CompanyModel[]>(store.getState().companyReducer.companies);
     const [companiesSearch, setCompaniesSearch] = useState<CompanyModel[]>([]);
-
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -35,7 +34,6 @@ function AllCompanies(): JSX.Element {
             webApi.getAllCompaniesApi()
                 .then(res => {
                     
-
                     //update local state
                     setCompanies(res.data)
                     setCompaniesSearch(res.data)
@@ -51,6 +49,16 @@ function AllCompanies(): JSX.Element {
 
     }, []);
 
+
+    useEffect(() => {
+        webApi.getAllCompaniesApi().then(res => setCompanies(res.data))
+            .catch(err => notify.error(err));
+
+        return store.subscribe(() => {
+            setCompanies(store.getState().companyReducer.companies);
+        });
+    }, []);
+
     const filter = (e: any) => {
         const search = e.target.value;
 
@@ -64,17 +72,7 @@ function AllCompanies(): JSX.Element {
         }
 
     };
-
-    useEffect(() => {
-        webApi.getAllCompaniesApi().then(res => setCompanies(res.data))
-            .catch(err => notify.error(err));
-
-        return store.subscribe(() => {
-            setCompanies(store.getState().companyReducer.companies);
-        });
-    }, []);
-
-
+    
     return (
         <div className="AllCompanies ">
             <h1 className="head" >Companies list</h1> 

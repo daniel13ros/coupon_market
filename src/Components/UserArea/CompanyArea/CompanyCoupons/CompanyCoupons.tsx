@@ -1,10 +1,11 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
+import { useSelector } from 'react-redux'
 import { Navigate, useNavigate } from "react-router-dom";
 import { URL } from "url";
 import { CouponModel } from "../../../../Model/CouponModel";
-import { getCompanyCouponsAction } from "../../../../Redux/CompanyState";
+import { CompanyState, getCompanyCouponsAction } from "../../../../Redux/CompanyState";
 import { getCustomerCouponsAction } from "../../../../Redux/CustomerState";
 import store from "../../../../Redux/Store";
 import notify from "../../../../Services/NotificationService";
@@ -16,10 +17,9 @@ import CouponItemCF from "../../../SharedArea/CouponItemCF/CouponItemCF";
 
 function CompanyCoupons(): JSX.Element {
     const [coupons, setCoupons] = useState<CouponModel[]>(store.getState().companyReducer.coupons);
-    const [couponsSearch, setCouponsSearch] = useState<CouponModel[]>(store.getState().companyReducer.coupons);
+    const [couponsSearch, setCouponsSearch] = useState<CouponModel[]>([]);
     const [category, setCategory] = useState("");
     const navigate = useNavigate();
-
 
 
     useEffect(() => {
@@ -30,49 +30,38 @@ function CompanyCoupons(): JSX.Element {
     }, []);
 
 
+
     useEffect(() => {
         if (couponsSearch.length === 0) {
             webApi.getAllCompanyCouponsApi()
                 .then(res => {
-                    
 
                     //update local state
                     setCoupons(res.data)
                     setCouponsSearch(res.data)
-
 
                     //update app state
                     store.dispatch(getCompanyCouponsAction(res.data))
                     notify.success('Coupons found')
 
                 })
-                .catch(err => notify.error('ohh no there are no tasks'));
+                .catch(err => notify.error('ohh no there are no coupons'));
         }
+    }, []);
 
+    useEffect(() => {
+        webApi.getAllCompanyCouponsApi().then(res => {setCoupons(res.data);})
+            .catch(err => notify.error(err));
         
+            return store.subscribe(() => {setCoupons(store.getState().companyReducer.coupons);});
     }, []);
 
     const handlerSearch = () => {
-        debugger
         const newData =
             coupons
                 .filter(c => c.category === (category === '' ? c.category : category))
         setCouponsSearch(newData);
     }
-
-    useEffect(() => {
-        webApi.getAllCompanyCouponsApi().then(res => { 
-            setCoupons(res.data);
-            setCouponsSearch(res.data) })
-        .catch(err => notify.error(err));
-
-
-        return store.subscribe(() => {
-            setCoupons(store.getState().companyReducer.coupons);
-            setCouponsSearch(store.getState().companyReducer.coupons);
-
-        });
-    }, []);
 
     return (
         <div className="CompanyCoupons ">
@@ -89,7 +78,7 @@ function CompanyCoupons(): JSX.Element {
                 <button className="selectArea" onClick={() => handlerSearch()} >search</button>
             </div>
             {
-                couponsSearch?.length > 0
+                coupons?.length > 0
                     ?
                     <>{couponsSearch.map((c, idx) => <CouponItemCF key={"t" + idx} coupon={c} />)}</>
                     :

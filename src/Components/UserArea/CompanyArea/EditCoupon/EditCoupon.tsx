@@ -10,6 +10,7 @@ import notify from "../../../../Services/NotificationService";
 import { updateCompanyAction, updateCouponAction } from "../../../../Redux/CompanyState";
 import { CouponModel, CouponPayloadModel } from "../../../../Model/CouponModel";
 import { Category } from "../../../../Model/Category";
+import { useSelector } from "react-redux";
 
 
 
@@ -25,6 +26,7 @@ function EditCoupon(): JSX.Element {
     
     const navigate = useNavigate();
 
+    
     const schema = yup.object().shape({
         description:
             yup.string()
@@ -58,7 +60,7 @@ function EditCoupon(): JSX.Element {
     });
 
 
-    const putTask = async (coupon: CouponPayloadModel) => {
+    const putCoupon = async (coupon: CouponPayloadModel) => {
         await webApi.updateCouponApi(coupon, couponId)
             .then(res => {
                 notify.success('Coupon updated successfully');
@@ -70,11 +72,6 @@ function EditCoupon(): JSX.Element {
             })
         
     }
-
-    
-
-
-
     let defaultValuesObj = { ...objCoupon };
 
     const { register, handleSubmit, control, formState: { errors, isDirty, isValid } }
@@ -90,9 +87,7 @@ function EditCoupon(): JSX.Element {
     return (
         <div className="EditCoupon">
             <h1>Edit Coupon{couponId}</h1>
-            <form onSubmit={handleSubmit(putTask)}>
-                {/* <label htmlFor="id">coupon id</label>
-                <input disabled={true} id="id" name="id" type="number" placeholder="Id..." value={couponId} /> */}
+            <form onSubmit={handleSubmit(putCoupon)}>
                 {(errors.title) ? <span>{errors.title?.message}</span> : <label htmlFor="title">title</label>}
                 <input {...register("title")} id="title" name="title" type="text" placeholder="title..." />
                 {(errors.description) ? <span>{errors.description?.message}</span> : <label htmlFor="description">description</label>}
@@ -103,13 +98,7 @@ function EditCoupon(): JSX.Element {
                     :
                     <select  {...register("category")} placeholder="category" defaultValue="" id="category">
                         <option value="" disabled>Category</option>
-                        {Object.keys(Category).map((key, index) => (
-                            <option
-                                aria-selected="true"
-                                key={key}
-                                value={key}
-                            >{Object.values(Category)[index]}
-                            </option>
+                        {Object.keys(Category).map((key, index) => (<option aria-selected="true" key={key} value={key}>{Object.values(Category)[index]}</option>
                         ))}
                     </select>
                 }
