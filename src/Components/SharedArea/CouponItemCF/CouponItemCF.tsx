@@ -26,8 +26,10 @@ function CouponItemCF(props:CouponItemProps): JSX.Element {
             <h3>{props.coupon.title} </h3>
             <span>{props.coupon.description} </span>
             </div>
-            <br></br>
-            <br></br>
+            <br/>
+            <div className="head">
+            <img className="coupon-img" src={props.coupon.image} alt="coupon image"/>
+            </div>
             <div className="mid">
             <span>{props.coupon.category}</span>
             <span>price :{props.coupon.price}$</span>

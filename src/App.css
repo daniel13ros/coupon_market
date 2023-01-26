@@ -4,7 +4,7 @@
   display: grid;
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
-  background-color: aqua;
+  background-color: rgb(184, 197, 197);
 }
 
 
@@ -24,14 +24,14 @@
 .App>.Menu {
   background-color: #E5BA73;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   font-style:italic;
   font-weight: bold;
   color: #000000;
-  grid-column: 2 span;
-  grid-row: 8 span;
+  grid-column: 12 span;
+  grid-row: 2 span;
 }
 .App>.Main {
   background-color: #f5e4a9;
@@ -40,7 +40,7 @@
   justify-content: space-evenly;
   align-items: center;
   color: #000000;
-  grid-column: 10 span;
+  grid-column: 12 span;
   grid-row: 8 span;
   overflow-y: auto;
 }
@@ -65,9 +65,9 @@
 .fade-down{
   background-image: linear-gradient( #C58940, #f5e4a9);
 }
-.fade-right{
+.fade{
   height: 100%;
   width: 100%;
   -webkit-box-shadow: inset 0 1 10px 20px #f5e4a9;
-  box-shadow: inset 0 0 10px 20px #f5e4a9;
+  box-shadow: inset 5px 5px 20px 20px #f5e4a9;
 }

@@ -6,7 +6,7 @@ import "./Footer.css";
 function Footer(): JSX.Element {
     return (
         <div className="Footer flex-around fade-up">
-            <span>All rights reserved to Daniel Rosman &copy;</span>
+            <span>All rights reserved to Daniel Rosman 2023 &copy;</span>
             <SocialMedia />
         </div>
     );

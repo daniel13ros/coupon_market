@@ -43,6 +43,7 @@ code {
 
 
 
+
 .flex-center-col {
   margin-top: 5px;
   display: flex;
@@ -80,18 +81,6 @@ code {
   justify-content: center;
   align-items: center;
 }
-
-
-/* p {
-  padding: 5px;
-  font-size: x-large;
-}
-
-p:first-letter {
-  color: #6db33f;
-  font-size: 50px;
-} */
-
 
 .button {
   height: 30px;
@@ -207,11 +196,14 @@ input[type=text], input[type=date], input[type=datetime-local], input[type=numbe
   border: none;
 }
 
+
+
 input[type=number]:disabled {
   font-weight: 700;
-
   background-color: #88888880;
 }
+
+
 
 label {
   margin-left: 2px;
@@ -220,6 +212,7 @@ label {
   display: inline-block;
   text-align: start;
   color: black;
+  
 }
 
 .head {
@@ -290,7 +283,12 @@ display: flex;
 flex-direction: row;
 align-items: center;
 cursor: pointer;
+
 }
+
+.button1:disabled{
+  cursor: not-allowed;
+  }
 
 .button1:hover{
 transition : 1000ms;
@@ -301,4 +299,26 @@ color: #c7c7c7;
 border: solid 2px #c7c7c7;
 }
 
+
+.selectOption{
+  width: 200px;
+  height: 20px;
+  margin-top: 10px;
+  border-radius: 12%;
+}
+
+.select-client-type{
+  width: 200px;
+  margin-top: 10px;
+}
+
+.price-input{
+  width: 140px;
+  margin-top: 10px;
+  border-radius: 12%;
+}
+
+.marge-top{
+  margin-top: 10px;
+}
 

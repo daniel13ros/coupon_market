@@ -54,7 +54,7 @@ function CustomerDetails(): JSX.Element {
 
     return (
         <div className="CustomerDetails ">
-            <h1>Customer details</h1>
+            <h1 className="head">Customer details</h1>
             {
                 customer?
                 <CustomerDetailsItem customer={customer}/>

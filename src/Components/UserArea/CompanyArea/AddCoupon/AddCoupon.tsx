@@ -100,13 +100,13 @@ function AddCoupon(): JSX.Element {
                 <input {...register("amount")} id="amount" name="amount" type="number" placeholder="amount..." />
                 {(errors.image) ? <span>{errors.image?.message}</span> : <label htmlFor="image">image</label>}
                 <input {...register("image")} id="image" name="image" type="text" placeholder="image..." />
-                {(errors.price) ? <span>{errors.price?.message}</span> : <label htmlFor="price">amount</label>}
+                {(errors.price) ? <span>{errors.price?.message}</span> : <label htmlFor="price">price</label>}
                 <input {...register("price")} id="price" name="price" type="number" placeholder="price..." />
                 {(errors.startDate) ? <span>{errors.startDate?.message}</span> : <label htmlFor="startDate">startDate</label>}
                 <input {...register("startDate")} id="startDate" name="startDate" type="datetime-local" placeholder="startDate..." />
                 {(errors.endDate) ? <span>{errors.endDate?.message}</span> : <label htmlFor="endDate">endDate</label>}
                 <input {...register("endDate")} id="endDate" name="endDate" type="datetime-local" placeholder="endDate..." />
-                <button disabled={!isValid}>Add Coupon</button>
+                <button className="button" disabled={!isValid}>Add Coupon</button>
 
 
             </form>

@@ -67,7 +67,7 @@ function CompanyCoupons(): JSX.Element {
         <div className="CompanyCoupons ">
             <h1 className="head">Coupons list</h1>
             <div className="selectArea">
-                <select className="selectArea" onChange={(e) => setCategory(e.target.value)}>
+                <select  onChange={(e) => setCategory(e.target.value)}>
                     <option value={''}>-All-</option>
                     <option value={'Electronics'}>Electronics</option>
                     <option value={'Restaurants'}>Restaurants</option>
@@ -75,7 +75,7 @@ function CompanyCoupons(): JSX.Element {
                     <option value={'Gifts'}>Gifts</option>
                     <option value={'Shoes'}>Shoes</option>
                 </select>
-                <button className="selectArea" onClick={() => handlerSearch()} >search</button>
+                <button className="button" onClick={() => handlerSearch()} >search</button>
             </div>
             {
                 coupons?.length > 0

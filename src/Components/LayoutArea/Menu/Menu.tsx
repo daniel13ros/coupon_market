@@ -10,8 +10,7 @@ function Menu(): JSX.Element {
 
 
   return (
-    <div className="Menu flex-col-top-center fade-right ">
-      <h1 >Menu</h1>
+    <div className="Menu flex-row-none-wrap-list fade ">
       {type === "Administrator" && (
         <CustomLink to="/home">Home</CustomLink>
       )}
@@ -55,6 +54,7 @@ function Menu(): JSX.Element {
         <CustomLink to="/customer/details">profile</CustomLink>
       )}
     </div>
+    
   );
 }
 

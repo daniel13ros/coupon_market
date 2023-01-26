@@ -33,8 +33,8 @@ function DeleteCompany(): JSX.Element {
                     <p>Are you sure you want to delete company #{id} ?</p>
                 </div>
                 <div className="row gap">
-                    <button className="cancel" onClick={cancel}>Cancel</button>
-                    <button className="yes" onClick={yes}>Yes</button>
+                    <button  className="button cancel" onClick={cancel}>Cancel</button>
+                    <button className="button yes" onClick={yes}>Yes</button>
                 </div>
             </div>
         </div>

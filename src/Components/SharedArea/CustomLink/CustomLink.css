@@ -9,8 +9,8 @@
 
 
 .CustomLink .active {
-    color: royalblue;
-	border-bottom: 3px solid royalblue;
+    color: black;
+	border-bottom: 3px solid black;
     font-weight: 700;
     font-size: 26px;
     text-decoration: dashed;

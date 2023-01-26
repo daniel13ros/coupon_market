@@ -26,7 +26,6 @@ import CompanyDetails from "../../UserArea/CompanyArea/CompanyDetails/CompanyDet
 import AddCoupon from "../../UserArea/CompanyArea/AddCoupon/AddCoupon";
 import DeleteCoupon from "../../UserArea/CompanyArea/DeleteCoupon/DeleteCoupon";
 import EditCoupon from "../../UserArea/CompanyArea/EditCoupon/EditCoupon";
-import PurchaseCoupon from "../../UserArea/CustomerArea/CustomerPurchase/PurchaseCoupon";
 import GetAllCoupons from "../../UserArea/CustomerArea/GetAllCoupons/GetAllCoupons";
 
 function Routing(): JSX.Element {

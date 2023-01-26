@@ -13,6 +13,7 @@ import CustomLink from '../../../SharedArea/CustomLink/CustomLink';
 import { Category } from '../../../../Model/Category';
 import CouponItemCF from '../../../SharedArea/CouponItemCuF/CouponItemCuF ';
 import EmptyView from '../../../SharedArea/EmptyView/EmptyView';
+import CouponItemCuF from '../../../SharedArea/CouponItemCuF/CouponItemCuF ';
 
 function GetAllCoupons() {
     const requiredType = "Customer";
@@ -109,9 +110,8 @@ function GetAllCoupons() {
         <div className="coupons_view_container ">
             <h1 className='head'>All Coupons</h1>
             <div className='head flex-center-col'>
-            <CustomLink to="/company/coupon/add"><span >select category</span></CustomLink>
-            <label htmlFor="category"></label>
-            <select  name='category' placeholder="category" onChange={(e) => handleCategoryChange(e)} defaultValue="ALL" id="category">
+            <label>select category</label>
+            <select className='selectOption' name='category' placeholder="category" onChange={(e) => handleCategoryChange(e)} defaultValue="ALL" id="category">
                 <option  key="ALL" value="ALL">All</option>
                 {Object.keys(Category).map((key, index) => (
                     <option
@@ -123,15 +123,17 @@ function GetAllCoupons() {
                 ))}
             </select>
             <br />
+            <div>
             <label htmlFor="price">Coupon Price</label>
-            <input type="number" min={0} max={999_999} step={1} defaultValue={0} onChange={(e) => handleMaxPriceChange(e)} id="price" name='price' />
+            <input className="price-input" type="number" min={0} max={999_999} step={1} defaultValue={0} onChange={(e) => handleMaxPriceChange(e)} id="price" name='price' />
+            </div>
             </div>
             <div className="coupon_list_container">
                 {
                     coupons.length > 0 ?
                         (<div className="coupons_gallery">
                             {coupons.map((coupon, index) => (
-                                <CouponItemCF key={index} coupon={coupon} />
+                                <CouponItemCuF key={index} coupon={coupon} />
                             ))}
                         </div>) :
                         (<div className="empty_view">

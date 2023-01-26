@@ -67,7 +67,7 @@ function AddTodo(): JSX.Element {
                 {(errors.password) ? <span>{errors.password?.message}</span> : <label htmlFor="password">Password</label>}
                 <input {...register("password")} id="password" name="password" type="password" placeholder="Password..." />
                 <input  disabled={true}  id="clientType" name="clientType" type="text" value={"Customer"} />
-                <button disabled={!isValid}>Add Customer</button>
+                <button className="button" disabled={!isValid}>Add Customer</button>
 
 
             </form>

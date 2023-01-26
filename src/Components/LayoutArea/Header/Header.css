@@ -7,7 +7,9 @@
 }
 
 .Header .couponIcon{
-    width: 50px;
+    width: 250px;
+    border-radius: 12%;
+    margin-top: 10px;
 }
 
 
