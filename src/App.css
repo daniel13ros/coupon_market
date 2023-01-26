@@ -4,42 +4,45 @@
   display: grid;
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
-  background-color: rgb(184, 197, 197);
+  color: var(--color-primary);
+  background-color: var(--bg);
 }
 
 
 
 .App>.Header {
-  background-color: #C58940;
+  /* background-color: #C58940; */
+  background-color: var(--bg-head);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  color: #000000;
   grid-column: 12 span;
   grid-row: 2 span;
 
 
 }
+
 .App>.Menu {
-  background-color: #E5BA73;
+  /* background-color: #E5BA73; */
+  background-color: var(--bg-menu);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  font-style:italic;
+  font-style: italic;
   font-weight: bold;
-  color: #000000;
   grid-column: 12 span;
   grid-row: 2 span;
 }
+
 .App>.Main {
-  background-color: #f5e4a9;
+  /* background-color: #f5e4a9; */
+  background-color: var(--bg-main);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  color: #000000;
   grid-column: 12 span;
   grid-row: 8 span;
   overflow-y: auto;
@@ -48,26 +51,42 @@
 
 
 .App>.Footer {
-  background-color: #C58940;
+  /* background-color: #C58940; */
+  background-color: var(--bg-footer);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  color: #000000;
   grid-column: 12 span;
   grid-row: 2 span;
 }
 
-.fade-up{
-  background-image: linear-gradient(#f5e4a9, #C58940);
+.fade-up {
+  background-image: linear-gradient(var(--bg-main), var(--bg-head));
 }
 
-.fade-down{
-  background-image: linear-gradient( #C58940, #f5e4a9);
+.fade-down {
+  background-image: linear-gradient(var(--bg-head), var(--bg-main));
 }
-.fade{
+
+.fade {
   height: 100%;
   width: 100%;
-  -webkit-box-shadow: inset 0 1 10px 20px #f5e4a9;
-  box-shadow: inset 5px 5px 20px 20px #f5e4a9;
+  -webkit-box-shadow: inset 0 1 10px 20px var(--bg-main);
+  box-shadow: inset 5px 5px 20px 20px var(--bg-main);
+}
+
+.dark-light {
+  color: var(--color-primary);
+  background-color: var(--color-secondary);
+  border: 2px var(--text-primary) solid;
+  float: right;
+  transition: all .5s;
+  width: 100px;
+  height: 20px;
+  border-radius: 20px;
+  border: solid #bababa 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  
+
 }

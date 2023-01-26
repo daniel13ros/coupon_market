@@ -25,13 +25,11 @@ function CustomerDetails(): JSX.Element {
   const getCustomerFromServer = async () => {
     await webApi.getCustomerInfoApi()
     .then((res) => {
-        notify.success("CUSTOMER_FETCH_ONE_SUCCESS");
         store.dispatch(addCustomerAction(res.data));
         setCustomer(res.data);
       })
 
       .catch((error) => {
-        notify.error(error);
         navigate("/customers");
       });
   };
@@ -43,11 +41,9 @@ function CustomerDetails(): JSX.Element {
 
   useEffect(() => {
     if (!store.getState().userReducer.user.token) {
-      notify.error("NO_TOKEN");
       navigate("/login");
     }
     if (!(store.getState().userReducer.user.clientType === requiredType)) {
-      notify.error("UNAUTHORIZED_ACTION");
       navigate("/login");
     }
   }, []);
