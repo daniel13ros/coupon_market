@@ -62,7 +62,7 @@ function CustomerCoupons(): JSX.Element {
                 ? 
                 <>{coupons.map((c,idx)=> <CouponItem key={"t"+idx} coupon={c}/>)}</> 
                 : 
-                <EmptyView msg="No tasks found"/>
+                <EmptyView msg="No coupons found"/>
             }
         </div>
     );
