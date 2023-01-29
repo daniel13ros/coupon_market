@@ -12,19 +12,19 @@
 }
 
 [data-theme='light'] {
-  --bg: #C58940;
-  --color-primary: #282c34;
-  --color-secondary: #f5e4a9;
-  --bg-head: #C58940;
-  --bg-main:  #f5e4a9;
-  --bg-menu: #E5BA73;
-  --bg-footer: #C58940;
+  --bg: #131A22;
+  --color-primary: #000000;
+  --color-secondary: #cbb08e;
+  --bg-head: #131A22;
+  --bg-main:  #7B8FA1;
+  --bg-menu: #577187;
+  --bg-footer: #131A22;
 }
 
 [data-theme='dark'] {
   --bg: #cbb08e;
   --color-primary: #282c34;
-  --color-secondary: #282c34;
+  --color-secondary: #7B8FA1;
   --bg-head: #cbb08e;
   --bg-main:  #afa47b;
   --bg-menu: #e9d4b0;

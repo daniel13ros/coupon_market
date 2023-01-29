@@ -12,7 +12,7 @@ function Menu(): JSX.Element {
   return (
     <div className="Menu flex-row-none-wrap-list fade ">
       {type === "Administrator" && (
-        <CustomLink to="/home">Home</CustomLink>
+        <CustomLink to="/home" data-replace="Home">Home</CustomLink>
       )}
       {type === "Administrator" && (
         <CustomLink to="/admin/companies">Companies</CustomLink>

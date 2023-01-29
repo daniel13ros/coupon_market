@@ -9,3 +9,42 @@
     margin: 10px;
     font-size: larger;
 }
+
+
+.Menu  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .Menu   a {
+    background:
+      linear-gradient(
+        to right,
+        rgba(100, 200, 200, 1),
+        rgba(100, 200, 200, 1)
+      ),
+      linear-gradient(
+        to right,
+        rgb(62, 134, 179),
+        rgb(36, 70, 155),
+        rgb(0, 48, 97)
+    );
+    background-size: 100% 3px, 0 3px;
+    background-position: 100% 100%, 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 400ms;
+  }
+  
+  .Menu  a:hover {
+    background-size: 0 3px, 100% 3px;
+  }
+  
+  /* Presentational Styles */
+  .Menu  body {
+    display: grid;
+    font-family: 'Poppins', sans-serif;
+    font-size: 27px;
+    font-weight: 700;
+    height: 100vh;
+    place-items: center;
+  }

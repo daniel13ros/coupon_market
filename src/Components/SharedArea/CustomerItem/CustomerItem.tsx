@@ -22,7 +22,6 @@ function CustomerItem(props:CustomerItemProps): JSX.Element {
         <div className="CustomerItem card">
 			
             <h3>{props.customer.firstName} </h3>
-            <hr />
             <span>{props.customer.lastName}</span>
             <span className="email">{props.customer.email}</span>
             <div className="flex-row">
