@@ -24,7 +24,7 @@ function CouponItemCuF(props: CouponItemProps): JSX.Element {
         }).catch((error) => {
             notify.error("already purchased");
         })
-        navigate('/home');
+        navigate('/customer/coupons');
     }
 
     return (

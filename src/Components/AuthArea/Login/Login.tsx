@@ -48,7 +48,7 @@ function Login(): JSX.Element {
                 <input {...register("password")} id="password" type="password" placeholder="password" />
                 <select className="select-client-type" {...register("clientType")} name="clientType" id="clientType" placeholder="clientType">
                     <option value="clientType" disabled>Client Type</option>
-                    <option value="Administrator">Admin</option>
+                    <option value="Administrator" >Admin</option>
                     <option value="Company">Company</option>
                     <option value="Customer">Customer</option>
                 </select>

@@ -9,22 +9,29 @@ import "./AuthMenu.css";
 
 function AuthMenu(): JSX.Element {
 
-    const [user,setUser]=useState<User>(store.getState().userReducer.user);
+    const [user, setUser] = useState<User>(store.getState().userReducer.user);
+    const [email, setEmail] = useState(store.getState().userReducer.user?.email);
 
-    
-    useEffect(() =>{
-        return store.subscribe(()=>setUser(store.getState().userReducer.user));
-        
-        
-    },[]);
-    
+
+    useEffect(() => {
+        return store.subscribe(() => {
+            setUser(store.getState().userReducer.user)
+            setEmail(store.getState().userReducer.user?.email);
+
+        });
+
+    }, []);
+
     return (
         <div className="AuthMenu row">
-			{
-                (user?.token)?
-                <>Hello {user.email}<CustomLink  to="logout">Logout</CustomLink></>
+            
+            {
+                (user?.token) 
+                ?
+                <>Hello {user.email||"admin"}<CustomLink to="logout">Logout</CustomLink></>
                 :
-                <>Hello {user.email}<CustomLink to="login">Login</CustomLink></>
+                <>Hello Guest<CustomLink to="login">Login</CustomLink></>
+                
             }
             
         </div>
