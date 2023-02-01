@@ -29,6 +29,9 @@ function Menu(): JSX.Element {
       {type === "Administrator" && (
         <CustomLink to="/admin/coupons">Coupons</CustomLink>
       )}
+      {type === "Administrator" && (
+        <CustomLink to="/about">Developer</CustomLink>
+      )}
       {type === 'Company' && (
         <CustomLink to="/home">Home</CustomLink>
       )}
@@ -41,6 +44,9 @@ function Menu(): JSX.Element {
       {type === 'Company' && (
         <CustomLink to="/company/details">profile</CustomLink>
       )}
+      {type === "Company" && (
+        <CustomLink to="/about">Developer</CustomLink>
+      )}
       {type === 'Customer' && (
         <CustomLink to="/home">Home</CustomLink>
       )}
@@ -52,6 +58,9 @@ function Menu(): JSX.Element {
       )}
       {type === 'Customer' && (
         <CustomLink to="/customer/details">profile</CustomLink>
+      )}
+      {type === "Customer" && (
+        <CustomLink to="/about">Developer</CustomLink>
       )}
     </div>
     

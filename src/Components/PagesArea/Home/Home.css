@@ -1,10 +1,13 @@
 .Home {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-evenly;
 	align-items: center;
+	width: 1500px;
+	
 }
 .Home .homeGiphy {
 	border-radius: 12%;
 	width: 300px;
 }
+

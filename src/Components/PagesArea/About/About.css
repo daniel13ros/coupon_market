@@ -8,6 +8,6 @@
 
 .About p::first-letter {
     font-size: 56px;
-    color: green;
+    color: var(--color-third);
     /* font-weight: 900; */
 }

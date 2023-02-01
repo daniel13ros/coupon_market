@@ -76,8 +76,8 @@ function AllCompanies(): JSX.Element {
     return (
         <div className="AllCompanies ">
             <h1 className="head" >Companies list</h1> 
-            <div>            
-                <input type={"text"} placeholder={"Search company by name "} onChange={filter} /> 
+            <div >            
+                <input  type={"text"} placeholder={"Search company by name "} onChange={filter} /> 
             </div>
             {
                 companies?.length > 0
