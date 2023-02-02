@@ -39,6 +39,7 @@ function AllCoupons(): JSX.Element {
                 
             })
             .catch(err=>notify.error('ohh no there are no coupons'));
+            
         }
                     
 
@@ -47,7 +48,7 @@ function AllCoupons(): JSX.Element {
     useEffect(() => {
         webApi.getAllCouponsApi().then(res=>setCoupons(res.data))
         .catch(err=>notify.error(err));
-    
+        
     
         return store.subscribe(() => {
             setCoupons(store.getState().customerReducer.coupons); // Will let us notify

@@ -43,7 +43,7 @@ function EditTodo(): JSX.Element {
     });
 
 
-    const putTask = async (customer: CustomerPayloadModel) => {
+    const putCustomer = async (customer: CustomerPayloadModel) => {
         await webApi.updateCustomerApi(customer,id)
             .then(res => {
                 notify.success('customer updated successfully');
@@ -72,7 +72,7 @@ function EditTodo(): JSX.Element {
     return (
         <div className="EditCustomer">
             <h1 className="head" >Edit Customer</h1>
-            <form onSubmit={handleSubmit(putTask)}>
+            <form onSubmit={handleSubmit(putCustomer)}>
                 <input disabled={true} id="id" name="id" type="number" placeholder="Id..." value={id} />
 
                 {(errors.firstName) ? <span>{errors.firstName?.message}</span> : <label htmlFor="firstName">FirstName</label>}

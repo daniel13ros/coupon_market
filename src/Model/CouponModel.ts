@@ -11,7 +11,7 @@ export interface CouponModel{
     amount?: number;
     price?: number;
     image?: string;
-    companyId?: number;  //TODO: create DTO and use number instead
+    company?: CompanyModel;  
 }
 
 export interface CouponPayloadModel{
@@ -23,5 +23,6 @@ export interface CouponPayloadModel{
     amount?: number;
     price?: number;
     image?: string;
-    companyId?: number;  //TODO: create DTO and use number instead
+    company?: CompanyModel;  
+    
 }

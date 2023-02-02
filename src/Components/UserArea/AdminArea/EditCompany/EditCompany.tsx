@@ -34,7 +34,7 @@ function EditCompany(): JSX.Element {
     });
 
 
-    const putTask = async (company: CompanyPayloadModel) => {
+    const putCompany = async (company: CompanyPayloadModel) => {
         await webApi.updateCompanyApi(company,id)
             .then(res => {
                 notify.success('company updated successfully');
@@ -63,7 +63,7 @@ function EditCompany(): JSX.Element {
     return (
         <div className="EditCompany">
             <h1 className="head">Edit Company</h1>
-            <form onSubmit={handleSubmit(putTask)}>
+            <form onSubmit={handleSubmit(putCompany)}>
                 <input disabled={true} id="id" name="id" type="number" placeholder="Id..." value={id} />
 
                 {(errors.name) ? <span>{errors.name?.message}</span> : <label htmlFor="name">Name</label>}

@@ -111,7 +111,7 @@ function GetAllCoupons() {
             <h1 className='head'>All Coupons</h1>
             <div className='head flex-center-col'>
             <label>select category</label>
-            <select className='selectOption' name='category' placeholder="category" onChange={(e) => handleCategoryChange(e)} defaultValue="ALL" id="category">
+            <select className='selectArea' name='category' placeholder="category" onChange={(e) => handleCategoryChange(e)} defaultValue="ALL" id="category">
                 <option  key="ALL" value="ALL">All</option>
                 {Object.keys(Category).map((key, index) => (
                     <option
