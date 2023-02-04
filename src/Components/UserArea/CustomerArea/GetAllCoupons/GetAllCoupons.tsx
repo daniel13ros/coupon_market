@@ -39,13 +39,14 @@ function GetAllCoupons() {
         if (coupons.length <= 0) {
             getAllCoupons();
         }
-        if (myCoupons.length <= 0) {
-            getAllCustomerCoupons();
-        }
+        // if (myCoupons.length <= 0) {
+        //     getAllCustomerCoupons();
+        // }
     }, [])
 
     const getAllCoupons = () => {
-        webApi.customerGetAllCouponsApi().then((res) => {
+        webApi.customerGetAllCouponsApi().then((res) => 
+        {
             notify.success("Coupons found");
             store.dispatch(getCouponsAction(res.data));
             setCoupons(res.data);
@@ -55,15 +56,25 @@ function GetAllCoupons() {
             })
     }
 
-    const getAllCustomerCoupons = async () => {
-        await webApi.getAllCustomerCouponsApi().then((res) => {
-            store.dispatch(getCustomerCouponsAction(res.data));
-            setMyCoupons(res.data);
-        })
-            .catch((error) => {
-                notify.error(error);
-            })
-    }
+    useEffect(() => {
+        webApi.customerGetAllCouponsApi().then(res=>setCoupons(res.data))
+        .catch(err=>notify.error(err));
+    
+    
+        return store.subscribe(() => {
+            setCoupons(store.getState().customerReducer.coupons); 
+        });
+    },[]);
+
+    // const getAllCustomerCoupons = async () => {
+    //     await webApi.getAllCustomerCouponsApi().then((res) => {
+    //         store.dispatch(getCustomerCouponsAction(res.data));
+    //         setMyCoupons(res.data);
+    //     })
+    //         .catch((error) => {
+    //             notify.error(error);
+    //         })
+    // }
 
     const handleCategoryChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setCategory(e.currentTarget.value);

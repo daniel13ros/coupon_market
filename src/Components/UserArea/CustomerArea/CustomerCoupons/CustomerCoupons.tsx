@@ -37,7 +37,7 @@ function CustomerCoupons(): JSX.Element {
                 notify.success('Customer coupons found')
                 
             })
-            .catch(err=>notify.error('ohh no there are no tasks'));
+            .catch(err=>notify.error('ohh no there are no coupons'));
         }
                     
 

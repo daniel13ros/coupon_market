@@ -19,6 +19,9 @@ function CouponItemCuF(props: CouponItemProps): JSX.Element {
         return store.getState().customerReducer.customerCoupons.filter(coupon => coupon.id === couponId).length > 0;
     }
 
+
+    
+
     const purchaseCoupon = (id: number) => {
         webApi.purchaseCouponApi(id).then(() => {
             notify.success("Coupon successfully purchased");
