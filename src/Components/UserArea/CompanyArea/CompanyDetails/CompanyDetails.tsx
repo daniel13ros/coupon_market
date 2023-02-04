@@ -55,7 +55,7 @@ function CompanyDetails(): JSX.Element {
   
       return (
           <div className="CustomerDetails ">
-              <h1>Customer details</h1>
+              <h1 className="head">Company details</h1>
               {
                   company?
                   <CompanyDetailsItem company={company}/>
