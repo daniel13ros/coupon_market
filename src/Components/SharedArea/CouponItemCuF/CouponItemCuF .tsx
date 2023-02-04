@@ -27,7 +27,7 @@ function CouponItemCuF(props: CouponItemProps): JSX.Element {
             notify.success("Coupon successfully purchased");
             store.dispatch(purchaseCouponAction(id));
         }).catch((error) => {
-            notify.error("already purchased or maybe sold out");
+            notify.error("already purchased ");
         })
         navigate('/customer/coupons');
     }
