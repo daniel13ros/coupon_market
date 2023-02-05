@@ -10,7 +10,7 @@ function CompanyDetailsItem(props:CompanyItemProps): JSX.Element {
 
     return (
         <div className="CompanyDetailsItem card head ">
-			<h1 >Company info</h1>
+			<h1 >Company information</h1>
             <span>id: {props.company.id}</span>
             <br />
             <span>name: {props.company.name}</span>
