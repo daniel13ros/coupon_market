@@ -61,7 +61,7 @@ function CompanyDetails(): JSX.Element {
           <CompanyDetailsItem company={company} />
           :
           <span>oops, there's a problem getting your information</span>
-      }
+      } 
     </div>
   );
 
