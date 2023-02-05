@@ -17,56 +17,56 @@ import CompanyDetailsItem from "../../../SharedArea/CompanyDetailsItem/CompanyDe
 ;
 
 function CompanyDetails(): JSX.Element {
-    const requiredType = "Company";
-    const navigate = useNavigate();
-    const params=useParams();
-    const companyId = params.companyId;
-  
-    const [company, setCompany] = useState<CompanyModel>(store.getState().companyReducer.companies.find((company) => company.id === companyId)!);
-    const getCompanyFromServer = async () => {
-      await webApi.getCompanyInfoApi()
+  const requiredType = "Company";
+  const navigate = useNavigate();
+  const params = useParams();
+  const companyId = params.companyId;
+
+  const [company, setCompany] = useState<CompanyModel>(store.getState().companyReducer.companies.find((company) => company.id === companyId)!);
+  const getCompanyFromServer = async () => {
+    await webApi.getCompanyInfoApi()
       .then((res) => {
-          notify.success("COMPANY_FETCH_ONE_SUCCESS");
-          store.dispatch(addCompanyAction(res.data));
-          setCompany(res.data);
-        })
-  
-        .catch((error) => {
-          notify.error(error);
-          navigate("/companies");
-        });
-    };
-    (function () {
-      if (company === undefined) {
-        getCompanyFromServer();
+        notify.success("COMPANY_FETCH_ONE_SUCCESS");
+        store.dispatch(addCompanyAction(res.data));
+        setCompany(res.data);
+      })
+
+      .catch((error) => {
+        notify.error(error);
+        navigate("/companies");
+      });
+  };
+  (function () {
+    if (company === undefined) {
+      getCompanyFromServer();
+    }
+  })();
+
+  useEffect(() => {
+    if (!store.getState().userReducer.user.token) {
+      notify.error("NO_TOKEN");
+      navigate("/login");
+    }
+    if (!(store.getState().userReducer.user.clientType === requiredType)) {
+      notify.error("UNAUTHORIZED_ACTION");
+      navigate("/login");
+    }
+  }, []);
+
+  return (
+    <div className="CustomerDetails ">
+      <h1 className="head">Company details</h1>
+      {
+        company ?
+          <CompanyDetailsItem company={company} />
+          :
+          <span>oops, there's a problem getting your information</span>
       }
-    })();
-  
-    useEffect(() => {
-      if (!store.getState().userReducer.user.token) {
-        notify.error("NO_TOKEN");
-        navigate("/login");
-      }
-      if (!(store.getState().userReducer.user.clientType === requiredType)) {
-        notify.error("UNAUTHORIZED_ACTION");
-        navigate("/login");
-      }
-    }, []);
-  
-      return (
-          <div className="CustomerDetails ">
-              <h1 className="head">Company details</h1>
-              {
-                  company?
-                  <CompanyDetailsItem company={company}/>
-                  :
-                  <span>oops, there's a problem getting your information</span>
-              }
-          </div>
-      );
-   
-  
- 
+    </div>
+  );
+
+
+
 }
 
 export default CompanyDetails;
