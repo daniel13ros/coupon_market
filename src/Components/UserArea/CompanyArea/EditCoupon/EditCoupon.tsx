@@ -109,9 +109,9 @@ function EditCoupon(): JSX.Element {
                 <input {...register("image")} id="image" name="image" type="text" placeholder="image..." />
                 {(errors.price) ? <span>{errors.price?.message}</span> : <label htmlFor="price">amount</label>}
                 <input {...register("price")} id="price" name="price" type="number" placeholder="price..." />
-                {(errors.startDate) ? <span>{errors.startDate?.message}</span> : <label htmlFor="startDate">startDate</label>}
+                {(errors.startDate) ? <span>{errors.startDate?.message}</span> : <label htmlFor="startDate">start date</label>}
                 <input {...register("startDate")} id="startDate" name="startDate" type="datetime-local" placeholder="startDate..." />
-                {(errors.endDate) ? <span>{errors.endDate?.message}</span> : <label htmlFor="endDate">endDate</label>}
+                {(errors.endDate) ? <span>{errors.endDate?.message}</span> : <label htmlFor="endDate">end date</label>}
                 <input {...register("endDate")} id="endDate" name="endDate" type="datetime-local" placeholder="endDate..." />
                 <button disabled={!isValid || !isDirty}>Update Coupon</button>
 
