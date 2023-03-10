@@ -65,7 +65,6 @@ function EditCompany(): JSX.Element {
             <h1 className="head">Edit Company</h1>
             <form onSubmit={handleSubmit(putCompany)}>
                 <input disabled={true} id="id" name="id" type="number" placeholder="Id..." value={id} />
-
                 {(errors.name) ? <span>{errors.name?.message}</span> : <label htmlFor="name">Name</label>}
                 <input {...register("name")} id="name" name="name" type="text" placeholder="Name..." />
                 {(errors.email) ? <span>{errors.email?.message}</span> : <label htmlFor="email">Email</label>}

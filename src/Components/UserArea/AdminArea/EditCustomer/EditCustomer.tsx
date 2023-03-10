@@ -83,7 +83,7 @@ function EditTodo(): JSX.Element {
                 <input {...register("email")} id="email" name="email" type="text" placeholder="Email..." />
                 {(errors.password) ? <span>{errors.password?.message}</span> : <label htmlFor="password">Password</label>}
                 <input {...register("password")} id="password" name="password" type="text" placeholder="Password..." />
-                <button disabled={!isValid || !isDirty}>Update Task</button>
+                <button disabled={!isValid || !isDirty}>Update customer</button>
 
 
             </form>

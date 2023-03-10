@@ -57,11 +57,11 @@ function AddTodo(): JSX.Element {
             <h1 className="head" >Add Company</h1>
             <form onSubmit={handleSubmit(postTask)}>
                 {(errors.name) ? <span>{errors.name?.message}</span> : <label htmlFor="name">Name</label>}
-                <input {...register("name")} id="name" name="name" type="text" placeholder="Name..." />
+                <input id="name" name="name" type="text" placeholder="Name..." />
                 {(errors.email) ? <span>{errors.email?.message}</span> : <label htmlFor="email">Email</label>}
-                <input {...register("email")} id="email" name="email" type="text" placeholder="email..." />
+                <input id="email" name="email" type="text" placeholder="email..." />
                 {(errors.password) ? <span>{errors.password?.message}</span> : <label htmlFor="password">Password</label>}
-                <input {...register("password")} id="password" name="password" type="password" placeholder="Password..." />
+                <input id="password" name="password" type="password" placeholder="Password..." />
                 <label htmlFor="type">clientType</label>
                 <input  disabled={true} id="type" name="type" type="text" placeholder="type..." value="Company" />
                 <button className="button" disabled={!isValid}>Add company</button>

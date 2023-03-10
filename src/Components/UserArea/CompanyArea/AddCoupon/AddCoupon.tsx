@@ -35,7 +35,8 @@ function AddCoupon(): JSX.Element {
                 .required("category is required"),
         amount:
             yup.number()
-                .required("amount is required"),
+                .required("amount is required")
+                .min(0),
         image:
             yup.string()
                 .required("description is required"),
@@ -97,7 +98,7 @@ function AddCoupon(): JSX.Element {
                 }
                 {<br />}
                 {(errors.amount) ? <span>{errors.amount?.message}</span> : <label htmlFor="amount">amount</label>}
-                <input {...register("amount")} id="amount" name="amount" type="number" placeholder="amount..." />
+                <input {...register("amount")} id="amount" name="amount" type="number" placeholder="amount..."/>
                 {(errors.image) ? <span>{errors.image?.message}</span> : <label htmlFor="image">image</label>}
                 <input {...register("image")} id="image" name="image" type="text" placeholder="image..." />
                 {(errors.price) ? <span>{errors.price?.message}</span> : <label htmlFor="price">price</label>}

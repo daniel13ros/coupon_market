@@ -59,13 +59,13 @@ function AddTodo(): JSX.Element {
             <h1 className="head">Add Customer</h1>
             <form onSubmit={handleSubmit(postTask)}>
                 {(errors.firstName) ? <span>{errors.firstName?.message}</span> : <label htmlFor="firstName">FirstName</label>}
-                <input {...register("firstName")} id="firstName" name="firstName" type="text" placeholder="FirstName..." />
+                <input id="firstName" name="firstName" type="text" placeholder="FirstName..." />
                 {(errors.lastName) ? <span>{errors.lastName?.message}</span> : <label htmlFor="lastName">LastName</label>}
-                <input {...register("lastName")} id="lastName" name="lastName" type="text" placeholder="LastName..." />
+                <input id="lastName" name="lastName" type="text" placeholder="LastName..." />
                 {(errors.email) ? <span>{errors.email?.message}</span> : <label htmlFor="email">Email</label>}
-                <input {...register("email")} id="email" name="email" type="text" placeholder="Email..." />
+                <input id="email" name="email" type="text" placeholder="Email..." />
                 {(errors.password) ? <span>{errors.password?.message}</span> : <label htmlFor="password">Password</label>}
-                <input {...register("password")} id="password" name="password" type="password" placeholder="Password..." />
+                <input id="password" name="password" type="password" placeholder="Password..." />
                 <input  disabled={true}  id="clientType" name="clientType" type="text" value={"Customer"} />
                 <button className="button" disabled={!isValid}>Add Customer</button>
 
